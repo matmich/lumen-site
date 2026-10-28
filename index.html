@@ -1,27 +1,47 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lumen — puzzle de lumière</title>
-<meta name="description" content="Lumen : guide un rayon de lumière avec des miroirs et allume toutes les cibles. Un puzzle calme, un défi par jour.">
+<title>Lumen: Light Puzzle</title>
+<meta name="description" content="Lumen: guide a beam of light with mirrors and light every target. A calm puzzle, a new challenge every day. Free on Google Play.">
+<meta property="og:title" content="Lumen: Light Puzzle">
+<meta property="og:description" content="One beam, a few mirrors, a little calm. Free puzzle game.">
 <style>
-  :root { --bg: #fbfaf7; --fg: #23212b; --mut: #6a6676; --acc: #8a5a00; }
-  @media (prefers-color-scheme: dark) { :root { --bg: #0f0d18; --fg: #ece9f4; --mut: #a6a1b6; --acc: #ffd36b; } }
+  :root { --bg: #fbfaf7; --fg: #23212b; --mut: #6a6676; --acc: #8a5a00; --btn: #23212b; --btnfg: #fff; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #0f0d18; --fg: #ece9f4; --mut: #a6a1b6; --acc: #ffd36b; --btn: #ffd36b; --btnfg: #1a1330; } }
   html { background: var(--bg); }
   body { margin: 0 auto; max-width: 38rem; padding: 4rem 1.25rem; color: var(--fg); font: 18px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; text-align: center; }
   h1 { font-size: 2.6rem; margin: 0; letter-spacing: .02em; }
   .sub { color: var(--acc); margin: .2rem 0 2rem; }
   p { color: var(--mut); }
   a { color: var(--acc); }
-  footer { margin-top: 3rem; font-size: .9rem; }
+  .stores { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: center; margin: 2rem 0 .5rem; }
+  .btn { display: inline-block; padding: .8rem 1.4rem; border-radius: .8rem; background: var(--btn); color: var(--btnfg); text-decoration: none; font-weight: 600; }
+  .btn.soon { opacity: .45; cursor: default; }
+  .lang { margin-top: 2.5rem; font-size: .9rem; }
+  footer { margin-top: 1rem; font-size: .9rem; }
+  [lang-only] { display: none; } html[lang="en"] [lang-only="en"], html[lang="fr"] [lang-only="fr"] { display: revert; }
 </style>
 </head>
 <body>
 <h1>Lumen</h1>
-<p class="sub">Puzzle de lumière et miroirs</p>
-<p>Guide un rayon à travers de petits dioramas : pose des miroirs et des séparateurs, mélange les couleurs, allume toutes les cibles. Un défi nouveau chaque jour, et une course contre l'ombre.</p>
-<p>Bientôt sur Google Play et l'App Store.</p>
-<footer><a href="privacy/">Politique de confidentialité</a></footer>
+<p class="sub"><span lang-only="en">A light and mirrors puzzle</span><span lang-only="fr">Puzzle de lumière et miroirs</span></p>
+<p><span lang-only="en">Guide a beam through tiny dioramas: place mirrors and splitters, mix colors, light every target. 75 levels in 5 worlds, a new challenge every day, and a survival run against a shadow.</span>
+<span lang-only="fr">Guide un rayon à travers de petits dioramas : pose des miroirs et des séparateurs, mélange les couleurs, allume toutes les cibles. 75 niveaux dans 5 mondes, un défi nouveau chaque jour, et une course contre l'ombre.</span></p>
+<div class="stores">
+  <a class="btn" href="https://play.google.com/store/apps/details?id=com.studiolumen.lumen&amp;utm_source=website" rel="noopener">Google Play</a>
+  <span class="btn soon" aria-disabled="true">App Store · <span lang-only="en">soon</span><span lang-only="fr">bientôt</span></span>
+</div>
+<p><span lang-only="en">Free. Optional ads give you hints.</span><span lang-only="fr">Gratuit. Des pubs facultatives donnent des indices.</span></p>
+<div class="lang"><a href="?lang=en">English</a> · <a href="?lang=fr">Français</a></div>
+<footer><a href="privacy/"><span lang-only="en">Privacy policy</span><span lang-only="fr">Politique de confidentialité</span></a></footer>
+<script>
+  (function () {
+    var q = (location.search.match(/[?&]lang=(en|fr)/) || [])[1];
+    var l = q || ((navigator.language || 'en').slice(0, 2) === 'fr' ? 'fr' : 'en');
+    document.documentElement.lang = l;
+  })();
+</script>
 </body>
 </html>
